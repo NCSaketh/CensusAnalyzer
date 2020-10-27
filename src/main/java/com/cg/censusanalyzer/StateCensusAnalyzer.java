@@ -11,9 +11,10 @@ import java.util.Iterator;
 
 
 public class StateCensusAnalyzer {
+    private static int count = 0;
     private final String CSV_PATH = "C:\\Users\\Nc Saketh\\intellij-workspace\\CensusAnalyzer\\src\\StateCensusData.csv";
 
-    public void readCSVData() {
+    public int readCSVData() {
         try {
             Reader reader = Files.newBufferedReader(Paths.get(CSV_PATH));
 
@@ -24,11 +25,13 @@ public class StateCensusAnalyzer {
 
             Iterator<CSVStateCensus> csvIterator = csvToBean.iterator();
             while (csvIterator.hasNext()) {
+                count++;
                 CSVStateCensus csvData = csvIterator.next();
                 System.out.println(csvData);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return count;
     }
 }
