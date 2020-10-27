@@ -30,16 +30,10 @@ public class StateCensusAnalyzer {
             BufferedReader bufferedReader = new BufferedReader(reader);
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-//                String[] arr = line.split(",");
-//                for (String x : arr) {
-//                    if (Pattern.matches(".*[^A-Za-z0-9 ].*", x)) {
-//                        return false;
-//                    }
-
                 if (!line.contains(","))
                     return true;
-                }
-           // }
+            }
+
         } catch (IOException e) {
             return false;
         }
