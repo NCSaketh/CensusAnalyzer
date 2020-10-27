@@ -9,5 +9,5 @@ public class StateAnalyzerException extends Exception {
         this.type = type;
     }
 
-    public enum ExceptionType {INVALID_FILE_PATH, INVALID_FILETYPE}
+    public enum ExceptionType {INVALID_FILE_PATH, INVALID_FILETYPE, INVALID_DELIMITER}
 }

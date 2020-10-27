@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.cg.censusanalyzer.StateCensusAnalyzerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-27T19:05:53" hostname="LAPTOP-M4C7MB0K" time="0.032">
+<testsuite name="com.cg.censusanalyzer.StateCensusAnalyzerTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-10-27T20:23:02" hostname="LAPTOP-M4C7MB0K" time="0.003">
   <properties/>
-  <testcase name="givenAFile_WhenTypeIncorrect_ShouldThrowStateAnalyzerException" classname="com.cg.censusanalyzer.StateCensusAnalyzerTest" time="0.032"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[com.cg.censusanalyzer.StateAnalyzerException: Invalid File Name
-	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:45)
-	at com.cg.censusanalyzer.StateCensusAnalyzerTest.givenAFile_WhenTypeIncorrect_ShouldThrowStateAnalyzerException(StateCensusAnalyzerTest.java:48)
+  <testcase name="givenCSVFile_WhenDelimiterIncorrect_ShouldThrowStateAnalyzerException" classname="com.cg.censusanalyzer.StateCensusAnalyzerTest" time="0.003">
+    <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
+	at com.cg.censusanalyzer.StateCensusAnalyzerTest.givenCSVFile_WhenDelimiterIncorrect_ShouldThrowStateAnalyzerException(StateCensusAnalyzerTest.java:61)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -53,5 +51,8 @@
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-]]></system-err>
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>
