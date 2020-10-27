@@ -10,11 +10,19 @@ import java.nio.file.Paths;
 import java.util.Iterator;
 
 
+
 public class StateCensusAnalyzer {
     private static int count = 0;
-    private final String CSV_PATH = "C:\\Users\\Nc Saketh\\intellij-workspace\\CensusAnalyzer\\src\\StateCensusData.csv";
+    public static final String CSV_PATH = "C:\\Users\\Nc Saketh\\intellij-workspace\\CensusAnalyzer\\src\\StateCensusData.csv";
 
-    public int readCSVData() {
+
+    public int readCSVData(String filePath) throws IOException, StateAnalyzerException {
+        try {
+            Files.newBufferedReader(Paths.get(filePath));
+        } catch (IOException e) {
+            throw new StateAnalyzerException("Invalid Path Name",
+                    StateAnalyzerException.ExceptionType.INVALID_FILE_PATH);
+        }
         try {
             Reader reader = Files.newBufferedReader(Paths.get(CSV_PATH));
 
