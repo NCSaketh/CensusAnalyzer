@@ -30,10 +30,25 @@ public class StateCensusAnalyzerTest {
     public void givenCSVFilePath_WhenIncorrect_ShouldThrowStateAnalyzerException() {
         stateCensusAnalyzer = new StateCensusAnalyzer();
         try {
+            String INCORRECT_CSV_PATH = "C:\\Users\\Nc Saketh\\intellij-workspace\\CensusAnalyzer\\StateCensusData.csv";
             stateCensusAnalyzer.readCSVData(INCORRECT_CSV_PATH);
         } catch (StateAnalyzerException e) {
             e.printStackTrace();
             Assert.assertEquals(StateAnalyzerException.ExceptionType.INVALID_FILE_PATH, e.type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void givenAFile_WhenTypeIncorrect_ShouldThrowStateAnalyzerException() {
+        stateCensusAnalyzer = new StateCensusAnalyzer();
+        try {
+            String INCORRECT_CSV_FILETYPE = "C:\\Users\\Nc Saketh\\intellij-workspace\\CensusAnalyzer\\src\\StateCensusData.json";
+            stateCensusAnalyzer.readCSVData(INCORRECT_CSV_FILETYPE);
+        } catch (StateAnalyzerException e) {
+            e.printStackTrace();
+            Assert.assertEquals(StateAnalyzerException.ExceptionType.INVALID_FILETYPE, e.type);
         } catch (IOException e) {
             e.printStackTrace();
         }

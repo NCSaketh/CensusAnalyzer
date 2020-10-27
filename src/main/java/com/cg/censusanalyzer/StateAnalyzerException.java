@@ -1,6 +1,6 @@
 package com.cg.censusanalyzer;
 
-public class StateAnalyzerException extends Throwable {
+public class StateAnalyzerException extends Exception {
 
     public final ExceptionType type;
 
@@ -9,5 +9,5 @@ public class StateAnalyzerException extends Throwable {
         this.type = type;
     }
 
-    public enum ExceptionType {INVALID_FILE_PATH}
+    public enum ExceptionType {INVALID_FILE_PATH, INVALID_FILETYPE}
 }
