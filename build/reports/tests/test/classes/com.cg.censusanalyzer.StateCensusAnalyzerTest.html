@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">4</div>
+<div class="counter">5</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.256s</div>
+<div class="counter">0.331s</div>
 <p>duration</p>
 </div>
 </td>
@@ -82,22 +82,27 @@
 </thead>
 <tr>
 <td class="success">givenAFile_WhenTypeIncorrect_ShouldThrowStateAnalyzerException</td>
-<td class="success">0.034s</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenCSVFilePath_WhenIncorrect_ShouldThrowStateAnalyzerException</td>
-<td class="success">0.015s</td>
+<td class="success">0.039s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenCSVFile_WhenDelimiterIncorrect_ShouldThrowStateAnalyzerException</td>
-<td class="success">0.005s</td>
+<td class="success">0.013s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenCSVFile_WhenHeaderIncorrect_ShouldThrowStateAnalyzerException</td>
+<td class="success">0.021s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenCSVFile_WhenRead_ShouldReturnCorrectRecordCount</td>
-<td class="success">0.202s</td>
+<td class="success">0.255s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -151,7 +156,7 @@ Census [ State = Sikkim, Population = 607688, AreaInSqKm = 7096, density = 86 ]
 	at java.base/java.nio.file.Files.newInputStream(Files.java:155)
 	at java.base/java.nio.file.Files.newBufferedReader(Files.java:2838)
 	at java.base/java.nio.file.Files.newBufferedReader(Files.java:2870)
-	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:44)
+	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:58)
 	at com.cg.censusanalyzer.StateCensusAnalyzerTest.givenCSVFilePath_WhenIncorrect_ShouldThrowStateAnalyzerException(StateCensusAnalyzerTest.java:41)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -201,18 +206,61 @@ Census [ State = Sikkim, Population = 607688, AreaInSqKm = 7096, density = 86 ]
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-java.nio.file.NoSuchFileException: C:\Users\Nc Saketh\intellij-workspace\CensusAnalyzer\src\src\InvalidDelimiterCensusData.csv
-	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
-	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
-	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
-	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:235)
-	at java.base/java.nio.file.Files.newByteChannel(Files.java:370)
-	at java.base/java.nio.file.Files.newByteChannel(Files.java:421)
-	at java.base/java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:420)
-	at java.base/java.nio.file.Files.newInputStream(Files.java:155)
-	at java.base/java.nio.file.Files.newBufferedReader(Files.java:2838)
-	at java.base/java.nio.file.Files.newBufferedReader(Files.java:2870)
-	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:44)
+com.cg.censusanalyzer.StateAnalyzerException: Invalid Headers
+	at com.cg.censusanalyzer.StateCensusAnalyzer.checkHeader(StateCensusAnalyzer.java:45)
+	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:66)
+	at com.cg.censusanalyzer.StateCensusAnalyzerTest.givenCSVFile_WhenHeaderIncorrect_ShouldThrowStateAnalyzerException(StateCensusAnalyzerTest.java:81)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
+	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
+	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:118)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:412)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+com.cg.censusanalyzer.StateAnalyzerException: Invalid Delimiter
+	at com.cg.censusanalyzer.StateCensusAnalyzer.checkDelimiter(StateCensusAnalyzer.java:31)
+	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:62)
 	at com.cg.censusanalyzer.StateCensusAnalyzerTest.givenCSVFile_WhenDelimiterIncorrect_ShouldThrowStateAnalyzerException(StateCensusAnalyzerTest.java:68)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -263,7 +311,7 @@ java.nio.file.NoSuchFileException: C:\Users\Nc Saketh\intellij-workspace\CensusA
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 com.cg.censusanalyzer.StateAnalyzerException: Invalid File Type
-	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:41)
+	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:55)
 	at com.cg.censusanalyzer.StateCensusAnalyzerTest.givenAFile_WhenTypeIncorrect_ShouldThrowStateAnalyzerException(StateCensusAnalyzerTest.java:55)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -324,7 +372,7 @@ com.cg.censusanalyzer.StateAnalyzerException: Invalid File Type
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.3</a> at 28-Oct-2020, 8:22:46 PM</p>
+<a href="http://www.gradle.org">Gradle 6.3</a> at 28-Oct-2020, 8:41:32 PM</p>
 </div>
 </div>
 </body>

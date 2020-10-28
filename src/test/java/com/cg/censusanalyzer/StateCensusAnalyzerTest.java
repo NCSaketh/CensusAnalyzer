@@ -62,16 +62,30 @@ public class StateCensusAnalyzerTest {
     }
 
     @Test
-    public void givenCSVFile_WhenDelimiterIncorrect_ShouldThrowStateAnalyzerException()  {
+    public void givenCSVFile_WhenDelimiterIncorrect_ShouldThrowStateAnalyzerException() {
         try {
-            String INCORRECT_CSV_DELIMITER = "C:\\Users\\Nc Saketh\\intellij-workspace\\CensusAnalyzer\\src\\src\\InvalidDelimiterCensusData.csv";
+            String INCORRECT_CSV_DELIMITER = "C:\\Users\\Nc Saketh\\intellij-workspace\\CensusAnalyzer\\src\\InvalidDelimiterCensusData.csv";
             stateCensusAnalyzer.readCSVData(INCORRECT_CSV_DELIMITER);
         } catch (StateAnalyzerException e) {
             e.printStackTrace();
-            Assert.assertEquals(StateAnalyzerException.ExceptionType.INVALID_DELIMITER , e.type);
+            Assert.assertEquals(StateAnalyzerException.ExceptionType.INVALID_DELIMITER, e.type);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenCSVFile_WhenHeaderIncorrect_ShouldThrowStateAnalyzerException() {
+        try {
+            String INCORRECT_CSV_HEADER = "C:\\Users\\Nc Saketh\\intellij-workspace\\CensusAnalyzer\\src\\InvalidHeaderCensusData.csv";
+            stateCensusAnalyzer.readCSVData(INCORRECT_CSV_HEADER);
+        } catch (StateAnalyzerException e) {
+            e.printStackTrace();
+            Assert.assertEquals(StateAnalyzerException.ExceptionType.INVALID_HEADER, e.type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
