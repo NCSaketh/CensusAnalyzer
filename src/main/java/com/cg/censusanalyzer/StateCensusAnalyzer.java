@@ -94,6 +94,12 @@ public class StateCensusAnalyzer {
         if (!isCSVFile(filePath))
             throw new StateAnalyzerException("Invalid File Type", StateAnalyzerException.ExceptionType.INVALID_FILETYPE);
 
+        Reader reader = Files.newBufferedReader(Paths.get(filePath));
+        reader.mark(1000);
+
+        //Check Delimiter
+        checkDelimiter(reader);
+
         //Checks file path
         try {
             Files.newBufferedReader(Paths.get(filePath));
@@ -101,9 +107,9 @@ public class StateCensusAnalyzer {
             throw new StateAnalyzerException("Invalid Path Name", StateAnalyzerException.ExceptionType.INVALID_FILE_PATH);
         }
 
-        Reader reader = Files.newBufferedReader(Paths.get(filePath));
 
         //Gets records count
+        reader.reset();
         CsvToBean<CSVStates> csvToBean = new CsvToBeanBuilder<CSVStates>(reader)
                 .withIgnoreLeadingWhiteSpace(true)
                 .withSkipLines(1)
