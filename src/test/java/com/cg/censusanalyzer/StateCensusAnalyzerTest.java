@@ -1,6 +1,7 @@
 package com.cg.censusanalyzer;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -9,6 +10,12 @@ import java.io.IOException;
 public class StateCensusAnalyzerTest {
 
     private StateCensusAnalyzer stateCensusAnalyzer;
+
+    @Before
+    public void init() {
+        stateCensusAnalyzer = new StateCensusAnalyzer();
+    }
+
     String INCORRECT_CSV_PATH = "C:\\Users\\Nc Saketh\\intellij-workspace\\CensusAnalyzer\\StateCensusData.csv";
 
 
@@ -57,7 +64,7 @@ public class StateCensusAnalyzerTest {
     @Test
     public void givenCSVFile_WhenDelimiterIncorrect_ShouldThrowStateAnalyzerException()  {
         try {
-            String INCORRECT_CSV_DELIMITER = "C:\\Users\\Nc Saketh\\intellij-workspace\\CensusAnalyzer\\src\\src\\CensusData.csv";
+            String INCORRECT_CSV_DELIMITER = "C:\\Users\\Nc Saketh\\intellij-workspace\\CensusAnalyzer\\src\\src\\InvalidDelimiterCensusData.csv";
             stateCensusAnalyzer.readCSVData(INCORRECT_CSV_DELIMITER);
         } catch (StateAnalyzerException e) {
             e.printStackTrace();

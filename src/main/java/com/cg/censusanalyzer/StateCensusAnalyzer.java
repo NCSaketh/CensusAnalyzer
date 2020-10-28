@@ -16,7 +16,6 @@ public class StateCensusAnalyzer {
     private static int count = 0;
     public static final String CSV_PATH = "C:\\Users\\Nc Saketh\\intellij-workspace\\CensusAnalyzer\\src\\StateCensusData.csv";
 
-
     private boolean isCSVFile(String filePath) {
         if (filePath.contains(".csv"))
             return true;
@@ -24,20 +23,13 @@ public class StateCensusAnalyzer {
             return false;
     }
 
-    public static boolean checkDelimiter(String filepath) throws StateAnalyzerException {
-        try {
-            Reader reader = Files.newBufferedReader(Paths.get(filepath));
-            BufferedReader bufferedReader = new BufferedReader(reader);
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                if (!line.contains(","))
-                    return true;
-            }
-
-        } catch (IOException e) {
-            return false;
+    public void checkDelimiter(Reader reader) throws StateAnalyzerException, IOException {
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
+            if (!line.contains(","))
+                throw new StateAnalyzerException("Invalid Delimiter", StateAnalyzerException.ExceptionType.INVALID_DELIMITER);
         }
-        return true;
     }
 
 
@@ -49,9 +41,10 @@ public class StateCensusAnalyzer {
                 throw new StateAnalyzerException("Invalid File Type", StateAnalyzerException.ExceptionType.INVALID_FILETYPE);
             }
 
-            if (checkDelimiter(filePath) == true) {
-                throw new StateAnalyzerException("Invalid Delimiter", StateAnalyzerException.ExceptionType.INVALID_DELIMITER);
-            }
+            Reader reader = Files.newBufferedReader(Paths.get(filePath));
+            reader.mark(1000);
+
+            checkDelimiter(reader);
 
             try {
                 Files.newBufferedReader(Paths.get(filePath));
@@ -60,7 +53,7 @@ public class StateCensusAnalyzer {
                         StateAnalyzerException.ExceptionType.INVALID_FILE_PATH);
             }
 
-            Reader reader = Files.newBufferedReader(Paths.get(filePath));
+            reader.reset();
             CsvToBean<CSVStateCensus> csvToBean = new CsvToBeanBuilder<CSVStateCensus>(reader)
                     .withIgnoreLeadingWhiteSpace(true)
                     .withSkipLines(1)
