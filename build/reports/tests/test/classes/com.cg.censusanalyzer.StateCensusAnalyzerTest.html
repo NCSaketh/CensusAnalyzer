@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">5</div>
+<div class="counter">6</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.331s</div>
+<div class="counter">0.397s</div>
 <p>duration</p>
 </div>
 </td>
@@ -82,17 +82,17 @@
 </thead>
 <tr>
 <td class="success">givenAFile_WhenTypeIncorrect_ShouldThrowStateAnalyzerException</td>
-<td class="success">0.003s</td>
+<td class="success">0.004s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenCSVFilePath_WhenIncorrect_ShouldThrowStateAnalyzerException</td>
-<td class="success">0.039s</td>
+<td class="success">0.013s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">givenCSVFile_WhenDelimiterIncorrect_ShouldThrowStateAnalyzerException</td>
-<td class="success">0.013s</td>
+<td class="success">0.033s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -102,7 +102,12 @@
 </tr>
 <tr>
 <td class="success">givenCSVFile_WhenRead_ShouldReturnCorrectRecordCount</td>
-<td class="success">0.255s</td>
+<td class="success">0.081s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">givenStateCodesCSV_WhenRead_ShouldReturnCorrectRecordCount</td>
+<td class="success">0.245s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -110,7 +115,44 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>Census [ State = Uttar Pradesh, Population = 199812341, AreaInSqKm = 240928, density = 828 ]
+<pre>IndiaStateCensus [ SrNo = 1, State Name = Andaman and Nicobar Islands, TIN = 35, State Code = AN ]
+IndiaStateCensus [ SrNo = 2, State Name = Andhra Pradesh, TIN = 28, State Code = AP ]
+IndiaStateCensus [ SrNo = 3, State Name = Andhra Pradesh New, TIN = 37, State Code = AD ]
+IndiaStateCensus [ SrNo = 4, State Name = Arunachal Pradesh, TIN = 12, State Code = AR ]
+IndiaStateCensus [ SrNo = 5, State Name = Assam, TIN = 18, State Code = AS ]
+IndiaStateCensus [ SrNo = 6, State Name = Bihar, TIN = 10, State Code = BH ]
+IndiaStateCensus [ SrNo = 7, State Name = Chandigarh, TIN = 04, State Code = CH ]
+IndiaStateCensus [ SrNo = 8, State Name = Chattisgarh, TIN = 22, State Code = CT ]
+IndiaStateCensus [ SrNo = 9, State Name = Dadra and Nagar Haveli, TIN = 26, State Code = DN ]
+IndiaStateCensus [ SrNo = 10, State Name = Daman and Diu, TIN = 25, State Code = DD ]
+IndiaStateCensus [ SrNo = 11, State Name = Delhi, TIN = 07, State Code = DL ]
+IndiaStateCensus [ SrNo = 12, State Name = Goa, TIN = 30, State Code = GA ]
+IndiaStateCensus [ SrNo = 13, State Name = Gujarat, TIN = 24, State Code = GJ ]
+IndiaStateCensus [ SrNo = 14, State Name = Haryana, TIN = 06, State Code = HR ]
+IndiaStateCensus [ SrNo = 15, State Name = Himachal Pradesh, TIN = 02, State Code = HP ]
+IndiaStateCensus [ SrNo = 16, State Name = Jammu and Kashmir, TIN = 01, State Code = JK ]
+IndiaStateCensus [ SrNo = 17, State Name = Jharkhand, TIN = 20, State Code = JH ]
+IndiaStateCensus [ SrNo = 18, State Name = Karnataka, TIN = 29, State Code = KA ]
+IndiaStateCensus [ SrNo = 19, State Name = Kerala, TIN = 32, State Code = KL ]
+IndiaStateCensus [ SrNo = 20, State Name = Lakshadweep Islands, TIN = 31, State Code = LD ]
+IndiaStateCensus [ SrNo = 21, State Name = Madhya Pradesh, TIN = 23, State Code = MP ]
+IndiaStateCensus [ SrNo = 22, State Name = Maharashtra, TIN = 27, State Code = MH ]
+IndiaStateCensus [ SrNo = 23, State Name = Manipur, TIN = 14, State Code = MN ]
+IndiaStateCensus [ SrNo = 24, State Name = Meghalaya, TIN = 17, State Code = ME ]
+IndiaStateCensus [ SrNo = 25, State Name = Mizoram, TIN = 15, State Code = MI ]
+IndiaStateCensus [ SrNo = 26, State Name = Nagaland, TIN = 13, State Code = NL ]
+IndiaStateCensus [ SrNo = 27, State Name = Odisha, TIN = 21, State Code = OR ]
+IndiaStateCensus [ SrNo = 28, State Name = Pondicherry, TIN = 34, State Code = PY ]
+IndiaStateCensus [ SrNo = 29, State Name = Punjab, TIN = 03, State Code = PB ]
+IndiaStateCensus [ SrNo = 30, State Name = Rajasthan, TIN = 08, State Code = RJ ]
+IndiaStateCensus [ SrNo = 31, State Name = Sikkim, TIN = 11, State Code = SK ]
+IndiaStateCensus [ SrNo = 32, State Name = Tamil Nadu, TIN = 33, State Code = TN ]
+IndiaStateCensus [ SrNo = 33, State Name = Telangana, TIN = 36, State Code = TS ]
+IndiaStateCensus [ SrNo = 34, State Name = Tripura, TIN = 16, State Code = TR ]
+IndiaStateCensus [ SrNo = 35, State Name = Uttar Pradesh, TIN = 09, State Code = UP ]
+IndiaStateCensus [ SrNo = 36, State Name = Uttarakhand, TIN = 05, State Code = UT ]
+IndiaStateCensus [ SrNo = 37, State Name = West Bengal, TIN = 19, State Code = WB ]
+Census [ State = Uttar Pradesh, Population = 199812341, AreaInSqKm = 240928, density = 828 ]
 Census [ State = Maharashta, Population = 112372972, AreaInSqKm = 307713, density = 365 ]
 Census [ State = Bihar, Population = 103804637, AreaInSqKm = 94163, density = 1102 ]
 Census [ State = West Bengal, Population = 91347736, AreaInSqKm = 88752, density = 1029 ]
@@ -156,7 +198,7 @@ Census [ State = Sikkim, Population = 607688, AreaInSqKm = 7096, density = 86 ]
 	at java.base/java.nio.file.Files.newInputStream(Files.java:155)
 	at java.base/java.nio.file.Files.newBufferedReader(Files.java:2838)
 	at java.base/java.nio.file.Files.newBufferedReader(Files.java:2870)
-	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:58)
+	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:57)
 	at com.cg.censusanalyzer.StateCensusAnalyzerTest.givenCSVFilePath_WhenIncorrect_ShouldThrowStateAnalyzerException(StateCensusAnalyzerTest.java:41)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -207,8 +249,8 @@ Census [ State = Sikkim, Population = 607688, AreaInSqKm = 7096, density = 86 ]
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 com.cg.censusanalyzer.StateAnalyzerException: Invalid Headers
-	at com.cg.censusanalyzer.StateCensusAnalyzer.checkHeader(StateCensusAnalyzer.java:45)
-	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:66)
+	at com.cg.censusanalyzer.StateCensusAnalyzer.checkHeader(StateCensusAnalyzer.java:44)
+	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:65)
 	at com.cg.censusanalyzer.StateCensusAnalyzerTest.givenCSVFile_WhenHeaderIncorrect_ShouldThrowStateAnalyzerException(StateCensusAnalyzerTest.java:81)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -259,8 +301,8 @@ com.cg.censusanalyzer.StateAnalyzerException: Invalid Headers
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 com.cg.censusanalyzer.StateAnalyzerException: Invalid Delimiter
-	at com.cg.censusanalyzer.StateCensusAnalyzer.checkDelimiter(StateCensusAnalyzer.java:31)
-	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:62)
+	at com.cg.censusanalyzer.StateCensusAnalyzer.checkDelimiter(StateCensusAnalyzer.java:30)
+	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:61)
 	at com.cg.censusanalyzer.StateCensusAnalyzerTest.givenCSVFile_WhenDelimiterIncorrect_ShouldThrowStateAnalyzerException(StateCensusAnalyzerTest.java:68)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -311,7 +353,7 @@ com.cg.censusanalyzer.StateAnalyzerException: Invalid Delimiter
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:834)
 com.cg.censusanalyzer.StateAnalyzerException: Invalid File Type
-	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:55)
+	at com.cg.censusanalyzer.StateCensusAnalyzer.readCSVData(StateCensusAnalyzer.java:54)
 	at com.cg.censusanalyzer.StateCensusAnalyzerTest.givenAFile_WhenTypeIncorrect_ShouldThrowStateAnalyzerException(StateCensusAnalyzerTest.java:55)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -372,7 +414,7 @@ com.cg.censusanalyzer.StateAnalyzerException: Invalid File Type
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.3</a> at 28-Oct-2020, 8:41:32 PM</p>
+<a href="http://www.gradle.org">Gradle 6.3</a> at 28-Oct-2020, 9:28:17 PM</p>
 </div>
 </div>
 </body>

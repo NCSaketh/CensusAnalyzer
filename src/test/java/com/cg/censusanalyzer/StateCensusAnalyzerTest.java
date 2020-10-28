@@ -88,4 +88,10 @@ public class StateCensusAnalyzerTest {
     }
 
 
+    @Test
+    public void givenStateCodesCSV_WhenRead_ShouldReturnCorrectRecordCount() {
+        String STATECODES_CSV_PATH = "C:\\Users\\Nc Saketh\\intellij-workspace\\CensusAnalyzer\\src\\StateCode.csv";
+        int result = stateCensusAnalyzer.readStateCodeCSVData(STATECODES_CSV_PATH);
+        Assert.assertEquals(37, result);
+    }
 }
