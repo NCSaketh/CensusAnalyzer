@@ -107,4 +107,18 @@ public class StateCensusAnalyzerTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenAFileForStateCodeCSV_WhenTypeIncorrect_ShouldThrowStateAnalyzerException() {
+        try {
+            String INCORRECT_STATECODE_CSV_FILE_TYPE = "C:\\Users\\Nc Saketh\\intellij-workspace\\CensusAnalyzer\\src\\StateCode.json";
+            stateCensusAnalyzer.readStateCodeCSVData(INCORRECT_STATECODE_CSV_FILE_TYPE);
+        } catch (StateAnalyzerException e) {
+            e.printStackTrace();
+            Assert.assertEquals(StateAnalyzerException.ExceptionType.INVALID_FILETYPE,
+                    e.type);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
